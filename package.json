@@ -1,0 +1,8 @@
+{
+  "name": "pc-api",
+  "version": "0.0.1",
+  "main": "src/server.ts",
+  "repository": "git@github.com:dehemart/pc-api.git",
+  "author": "dehemart <martins.denis@gmail.com>",
+  "license": "MIT"
+}
