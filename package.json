@@ -4,5 +4,10 @@
   "main": "src/server.ts",
   "repository": "git@github.com:dehemart/pc-api.git",
   "author": "dehemart <martins.denis@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.25.0"
+  }
 }
