@@ -6,7 +6,9 @@
     "rootDir": "src",
     "moduleResolution": "Node",
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@Entities/*": ["src/domain/entities/*"]
+    },
     "resolveJsonModule": true,
     "outDir": "dist",
     "removeComments": true,
