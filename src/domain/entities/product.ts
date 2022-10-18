@@ -1,10 +1,10 @@
-import { BaseEntity } from 'src/core/entities/entity';
+import { v4 as uuidV4 } from 'uuid';
 
 export enum ProductStatus {
   SELLING,
 }
 
-export type  ProductCreateProps = {
+export interface  ProductCreateProps  {
   sku: string
   slug: string
   name: string
@@ -16,81 +16,117 @@ export type  ProductCreateProps = {
   imageUrl: Map<string, string>
 }
 
-export class Product extends BaseEntity<ProductCreateProps> {
+export class Product {
 
-  constructor( props: ProductCreateProps, id?: string ){
-    super( props, id );
+  private _sku: string;
+  private _slug: string;
+  private _name: string;
+  private _description: string;
+  private _properties: Map<string, string>;
+  private _deleted: boolean;
+  private _active: boolean;
+  private _status:  ProductStatus;
+  private _imageUrl: Map<string, string>;
+  private _id: string;
+  private _createAt: Date;
+
+
+  constructor(
+    props: ProductCreateProps,
+    id?: string ){
+    this._sku = props.sku;
+    this._slug = props.slug;
+    this._name = props.name;
+    this._description = props.description;
+    this._properties = props.properties;
+    this._deleted = props.deleted;
+    this._active = props.active;
+    this._status = props.status;
+    this._imageUrl = props.imageUrl;
+    this._id = id || uuidV4();
+    this._createAt = new Date();
+  }
+
+  public get id(): string {
+    return this._id;
+  }
+
+  public get createAt(): Date {
+    return this._createAt;
   }
 
   public get sku(): string {
-    return this.props.sku;
+    return this._sku;
   }
 
   public set sku( sku: string ) {
-    this.props.sku = sku;
+    this._sku = sku;
   }
 
   public get slug(): string {
-    return this.props.slug;
+    return this._slug;
   }
 
   public set slug( slug: string ) {
-    this.props.slug = slug;
+    this._slug = slug;
   }
 
   public get name(): string {
-    return this.props.name;
+    return this._name;
   }
 
   public set name( name: string ) {
-    this.props.name = name;
+    this._name = name;
   }
 
   public get description(): string {
-    return this.props.description;
+    return this._description;
   }
 
   public set description( description: string ) {
-    this.props.description = description;
+    this._description = description;
   }
 
   public get properties(): Map<string, string> {
-    return this.props.properties;
+    return this._properties;
   }
 
   public set properties( properties: Map<string, string> ) {
-    this.props.properties = properties;
+    this._properties = properties;
   }
 
   public get deleted(): boolean {
-    return this.props.deleted;
+    return this._deleted;
   }
 
   public set deleted( deleted: boolean ) {
-    this.props.deleted = deleted;
+    this._deleted = deleted;
   }
 
   public get active(): boolean {
-    return this.props.active;
+    return this._active;
   }
 
   public set active( active: boolean ) {
-    this.props.active = active;
+    this._active = active;
   }
 
   public get status(): ProductStatus {
-    return this.props.status;
+    return this._status;
   }
 
   public set status( status: ProductStatus ) {
-    this.props.status = status;
+    this._status = status;
   }
 
   public get imageUrl(): Map<string, string> {
-    return this.props.imageUrl;
+    return this._imageUrl;
   }
 
   public set imageUrl( imageUrl: Map<string, string> ) {
-    this.props.imageUrl = imageUrl;
+    this._imageUrl = imageUrl;
   }
+
+
+
 }
