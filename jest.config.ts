@@ -11,6 +11,8 @@ const config: Config.InitialOptions = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
+    '^@Entities/(.*)$': '<rootDir>/src/domain/entities/$1',
+    '^@Ports/(.*)$': '<rootDir>/src/domain/ports/$1',
     '^src/(.*)$': '<rootDir>/src/$1',
   }
 };
