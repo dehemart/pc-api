@@ -5,15 +5,15 @@ import { ProductStatus } from '@Entities/productStatus';
 export class Product {
   private _sku: string;
   private _slug: string;
-  private _name: string;
+  private _name!: string;
   private _description: string;
   private _properties: Map<string, string>;
   private _deleted: boolean;
   private _active: boolean;
-  private _status:  ProductStatus;
+  private _status!:  ProductStatus;
   private _imageUrl: Map<string, string>;
-  private _id: string;
-  private _createAt: Date;
+  private _id!: string;
+  private _createAt!: Date;
 
   constructor(
     props: ProductCreateProps,

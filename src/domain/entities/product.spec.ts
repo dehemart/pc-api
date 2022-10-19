@@ -1,6 +1,6 @@
 import { Product } from '@Entities/product';
-import { ProductCreateProps } from '@Ports/createProductProps';
 import { ProductStatus } from '@Entities/productStatus';
+import { ProductCreateProps } from '@Ports/createProductProps';
 
 describe( 'Test over Product class', () => {
   test( 'Create new product of Product', () => {
@@ -47,15 +47,14 @@ describe( 'Test over Product class', () => {
 
     expect( product.status.name ).toEqual( sut.name );
   } );
+
 } );
-
-
 
 function getProductProps( {
   sku = 'sku',
   slug = 'slug',
   name = 'name',
-  description ='description',
+  description = 'description',
   properties = new Map().set( 'propsMame1', 'propsValue1' ).set( 'propsMame2', 'propsValue2' ),
   deleted =false,
   active = true,
