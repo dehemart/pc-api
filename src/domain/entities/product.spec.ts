@@ -1,6 +1,6 @@
 import { Product } from '@Entities/product';
 import { ProductStatus } from '@Entities/productStatus';
-import { ProductCreateProps } from '@Ports/createProductProps';
+import { ProductCreateProps } from '@Ports/in/createProductProps';
 
 describe( 'Test over Product class', () => {
   test( 'Create new product of Product', () => {
@@ -41,7 +41,7 @@ describe( 'Test over Product class', () => {
   } );
 
   test( 'ProductStatus added', () => {
-    const sut = new ProductStatus( 'ProductStatusName' );
+    const sut = new ProductStatus( 'ProductStatusName', 'ProductStatus Description' );
     const productProps : ProductCreateProps = getProductProps( { status: sut } );
     const product = new Product( productProps );
 
@@ -58,7 +58,7 @@ function getProductProps( {
   properties = new Map().set( 'propsMame1', 'propsValue1' ).set( 'propsMame2', 'propsValue2' ),
   deleted =false,
   active = true,
-  status = new ProductStatus( 'ProductStatusName' ),
+  status = new ProductStatus( 'ProductStatusName', 'ProductStatus Description' ),
   imageUrl = new Map().set( 'urlName1', 'urlVAlue1' ).set( 'urlName2', 'urlVAlue2' )
 } ): ProductCreateProps {
   return {

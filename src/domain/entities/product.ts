@@ -1,5 +1,5 @@
 import { v4 as uuidV4 } from 'uuid';
-import { ProductCreateProps } from '@Ports/createProductProps';
+import { ProductCreateProps } from '@Ports/in/createProductProps';
 import { ProductStatus } from '@Entities/productStatus';
 
 export class Product {

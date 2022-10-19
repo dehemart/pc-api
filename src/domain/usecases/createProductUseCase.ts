@@ -1,5 +1,5 @@
 import { Product } from '@Entities/product';
-import { ProductCreateProps } from '@Ports/createProductProps';
+import { ProductCreateProps } from '@Ports/in/createProductProps';
 
 export class CreateProductUseCase {
 
