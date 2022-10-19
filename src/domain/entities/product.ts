@@ -28,6 +28,7 @@ export class Product {
     this._active = props.active;
     this._status = props.status;
     this._imageUrl = props.imageUrl;
+
     this._id = id || uuidV4();
     this._createAt = new Date();
   }
