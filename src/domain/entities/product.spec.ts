@@ -39,6 +39,14 @@ describe( 'Test over Product class', () => {
 
     expect( sut.createAt.getDate() ).toEqual( new Date().getDate() );
   } );
+
+  test( 'ProductStatus added', () => {
+    const sut = new ProductStatus( 'ProductStatusName' );
+    const productProps : ProductCreateProps = getProductProps( { status: sut } );
+    const product = new Product( productProps );
+
+    expect( product.status.name ).toEqual( sut.name );
+  } );
 } );
 
 
