@@ -1,4 +1,6 @@
-import { Product, ProductCreateProps, ProductStatus } from './product';
+import { Product } from '@Entities/product';
+import { ProductCreateProps } from '@Ports/createProductProps';
+import { ProductStatus } from '@Entities/productStatus';
 
 describe( 'Test over Product class', () => {
   test( 'Create new product of Product', () => {
@@ -28,14 +30,14 @@ describe( 'Test over Product class', () => {
     const productProps : ProductCreateProps = getProductProps( {} );
     const sut = new Product( productProps );
 
-    expect( sut.createAt.getDate() ).toEqual( new Date().getDate() );
+    expect( sut.createAt ).not.toBeNull();
   } );
 
   test( 'createAt is equal today', () => {
     const productProps : ProductCreateProps = getProductProps( {} );
     const sut = new Product( productProps );
 
-    expect( sut.createAt ).not.toBeNull();
+    expect( sut.createAt.getDate() ).toEqual( new Date().getDate() );
   } );
 } );
 
@@ -49,7 +51,7 @@ function getProductProps( {
   properties = new Map().set( 'propsMame1', 'propsValue1' ).set( 'propsMame2', 'propsValue2' ),
   deleted =false,
   active = true,
-  status =ProductStatus.SELLING,
+  status = new ProductStatus( 'ProductStatusName' ),
   imageUrl = new Map().set( 'urlName1', 'urlVAlue1' ).set( 'urlName2', 'urlVAlue2' )
 } ): ProductCreateProps {
   return {

@@ -1,23 +1,8 @@
 import { v4 as uuidV4 } from 'uuid';
-
-export enum ProductStatus {
-  SELLING,
-}
-
-export interface  ProductCreateProps  {
-  sku: string
-  slug: string
-  name: string
-  description: string
-  properties: Map<string, string>
-  deleted: boolean
-  active: boolean
-  status:  ProductStatus
-  imageUrl: Map<string, string>
-}
+import { ProductCreateProps } from '@Ports/createProductProps';
+import { ProductStatus } from '@Entities/productStatus';
 
 export class Product {
-
   private _sku: string;
   private _slug: string;
   private _name: string;
@@ -30,10 +15,10 @@ export class Product {
   private _id: string;
   private _createAt: Date;
 
-
   constructor(
     props: ProductCreateProps,
-    id?: string ){
+    id?: string )
+  {
     this._sku = props.sku;
     this._slug = props.slug;
     this._name = props.name;
